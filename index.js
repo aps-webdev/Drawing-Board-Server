@@ -3,10 +3,10 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 
 const app = express();
-const development = app.settings.env === "development";
+const development = app.settings.env == "development";
 const clientUrl = development
-  ? "https://drawing-board-mur2f4uxn-aps-webdev.vercel.app/"
-  : "http://localhost:3000";
+  ? "http://localhost:3000"
+  : "https://drawing-board-mur2f4uxn-aps-webdev.vercel.app/";
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
