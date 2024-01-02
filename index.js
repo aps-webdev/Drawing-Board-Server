@@ -3,9 +3,12 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 
 const app = express();
-const router = express.Router();
 
-router.get("/health", (req, res) => {
+app.get("/", (_, res) => {
+  res.send("Hello, from express");
+});
+
+app.get("/health", (_, res) => {
   const data = {
     uptime: process.uptime(),
     message: "Ok",
